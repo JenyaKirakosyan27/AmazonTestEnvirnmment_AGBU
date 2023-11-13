@@ -21,7 +21,7 @@ class ProductRelatedTest(unittest.TestCase):
         loginPageObj = LogInPage(self.driver)
         loginPageObj.fill_username_field("jenyakirakosyan27@gmail.com")
         loginPageObj.click_to_continue_button()
-        loginPageObj.fill_password_fild("//eva[@tsaturyan]")
+        loginPageObj.fill_password_fild("//eva[@]")
         sleep(10) # Added sleep time to avoid captcha from amazon
         loginPageObj.click_to_signin_button()
 
