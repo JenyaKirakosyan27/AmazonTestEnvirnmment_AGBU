@@ -22,7 +22,7 @@ class TestLogIn(unittest.TestCase):
         self.logInPageObj = LogInPage(self.driver)
         self.logInPageObj.fill_username_field("jenyakirakosyan27@gmail.com")
         self.logInPageObj.click_to_continue_button()
-        self.logInPageObj.fill_password_fild("//eva[@tsaturyan]")
+        self.logInPageObj.fill_password_fild("//eva[@ts]")
         sleep(5) # Added sleep time to avoid captcha from amazon
         self.logInPageObj.click_to_signin_button()
 
@@ -33,7 +33,8 @@ class TestLogIn(unittest.TestCase):
         self.logInPageObj.fill_password_fild("WrongPassword")
         sleep(5) # Added sleep time to avoid captcha from amazon
         self.logInPageObj.click_to_signin_button()
-        self.logInPageObj.validate_incorrect_password_alert()
+        #self.logInPageObj.validate_incorrect_password_alert()
+        self.assertEqual(self.driver.title, "Authentication required")
 
 
     def tearDown(self):
