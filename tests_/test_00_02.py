@@ -8,6 +8,7 @@ from time import sleep
 from selenium.webdriver.support.events import EventFiringWebDriver
 from common_.utilities_.customListener import MyListener
 
+
 class ProductRelatedTest(unittest.TestCase):
     def setUp(self):
         self.simpleDriver = webdriver.Chrome()
