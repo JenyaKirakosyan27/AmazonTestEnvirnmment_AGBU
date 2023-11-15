@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from pages_.basePage import BasePage
 
+
 class NavigationBar(BasePage):
     def __init__(self, driver: webdriver.Chrome):
         super().__init__(driver)
