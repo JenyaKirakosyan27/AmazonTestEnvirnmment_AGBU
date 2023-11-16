@@ -2,6 +2,7 @@ from selenium import webdriver
 from pages_.basePage import BasePage
 from selenium.webdriver.common.by import By
 
+
 class LogInPage(BasePage):
     def __init__(self, driver: webdriver.Chrome):
         super(LogInPage, self).__init__(driver)
@@ -10,7 +11,7 @@ class LogInPage(BasePage):
         self.__passwordFieldLocator = (By.ID, 'ap_password')
         self.__signInButtonLocator = (By.ID, 'signInSubmit')
         self.__errorMessageThereWasAProblemLocator = (By.XPATH, "//h4[@class='a-alert-heading' and text()='There was a problem']")
-        self.__errorMessageYourPasswordIsIncorrectLocator = (By.CLASS_NAME, 'a-list-item')
+        self.__errorMessageYourEmailAddressOrMobilePhoneNumberIncorrectLocator = (By.CLASS_NAME, 'a-list-item')
 
     def fill_username_field(self, username):
         usernameFieldElement = self._find_element(self.__usernameFieldLocator)
@@ -30,4 +31,8 @@ class LogInPage(BasePage):
 
     def validate_incorrect_password_alert(self):
         assert self._get_element_text_by_locator(self.__errorMessageThereWasAProblemLocator) == "There was a problem"
-        assert self._get_element_text_by_locator(self.__errorMessageYourPasswordIsIncorrectLocator) == "Your password is incorrect"
+
+    def validate_incorrect_email_address_or_mobile_phone_number_alert(self):
+        assert self._get_element_text_by_locator(self.__errorMessageYourEmailAddressOrMobilePhoneNumberIncorrectLocator) == "We cannot find an account with that email address"
+
+
